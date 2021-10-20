@@ -20,6 +20,13 @@ class BankAccount:
         print(f"Current Account Balance: ${self.balance}")
         return self.balance
     
-    def add_interest(self):
+    def add_interest(self) -> None:
         interest = self.balance * 0.00083
         self.balance += interest
+    
+    def print_statement(self) -> None:
+        print(f"{self.name}\nAccount No.: ****{str(self.number)[-4:]}\nBalance: ${self.balance}")
+
+
+if __name__ == "__main__":
+    pass
