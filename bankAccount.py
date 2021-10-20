@@ -4,3 +4,8 @@ class BankAccount:
         self.number = account_number
         self.balance = balance
         
+    def deposit(self, amount: float) -> None:
+        self.balance += amount
+        print(f"Amount deposited: ${amount} new balance: ${self.balance}")
+    
+    
