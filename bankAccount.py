@@ -1,8 +1,10 @@
+from random import randint
+
 class BankAccount:
     # Initialize object
-    def __init__(self, full_name: str, account_number: int, balance = 0) -> None:
+    def __init__(self, full_name: str, balance = 0) -> None:
         self.name = full_name
-        self.number = account_number
+        self.number = randint(10000000, 99999999)
         self.balance = balance
     
     # Deposit money that will be added into balance
@@ -35,4 +37,7 @@ class BankAccount:
 
 # Tests
 if __name__ == "__main__":
+    pao = BankAccount("pao", 12)
+    x = BankAccount("x")
+    print(pao.number, x.number)
     pass
