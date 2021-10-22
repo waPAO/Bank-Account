@@ -8,7 +8,7 @@ class BankAccount:
     # Deposit money that will be added into balance
     def deposit(self, amount: float) -> None:
         self.balance += amount
-        print(f"Amount deposited: ${amount} new balance: ${self.balance}")
+        print(f"Amount deposited: ${amount} new balance: ${'%.2f'%self.balance}")
     
     # Withdraw money that will be deducted from balance
     def withdraw(self, amount: float) -> None:
@@ -17,11 +17,11 @@ class BankAccount:
             self.balance -= 10
         else:
             self.balance -= amount
-            print(f"Amount withdrawn: ${amount} new balance: ${self.balance}")
+            print(f"Amount withdrawn: ${amount} new balance: ${'%.2f'%self.balance}")
 
     # Returns balance and prints out balance
     def get_balance(self) -> float:
-        print(f"Current Account Balance: ${self.balance}")
+        print(f"Current Account Balance: ${'%.2f'%self.balance}")
         return self.balance
     
     # Add interest to balance
@@ -31,8 +31,8 @@ class BankAccount:
     
     # Print account details
     def print_statement(self) -> None:
-        print(f"{self.name}\nAccount No.: ****{str(self.number)[-4:]}\nBalance: ${self.balance}")
+        print(f"{self.name}\nAccount No.: ****{str(self.number)[-4:]}\nBalance: ${'%.2f'%self.balance}")
 
-
+# Tests
 if __name__ == "__main__":
     pass
