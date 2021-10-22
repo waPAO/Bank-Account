@@ -1,9 +1,17 @@
+from random import randint
+
 class BankAccount:
     # Initialize object
-    def __init__(self, full_name: str, accountNumber: int, balance = 0) -> None:
+    def __init__(self, full_name: str, type = "checking") -> None:
         self.name = full_name
-        self.number = accountNumber
-        self.balance = balance
+        self.number = randint(10000000, 99999999)
+        self.balance = 0
+        if type == "checking":
+            self.type = type
+        elif type == "savings":
+            self.type = type
+        else:
+            print("Bank account type does not exist, please input 'checking' or 'savings'")
     
     # Deposit money that will be added into balance
     def deposit(self, amount: float) -> None:
@@ -26,8 +34,12 @@ class BankAccount:
     
     # Add interest to balance
     def add_interest(self) -> None:
-        interest = self.balance * 0.00083
-        self.balance -= interest
+        if self.type == "checking":
+            interest = self.balance * 0.00083
+            self.balance -= interest
+        else:
+            interest = self.balance * 0.001
+            self.balance -= interest
     
     # Print account details
     def print_statement(self) -> None:
@@ -35,18 +47,23 @@ class BankAccount:
 
 # Tests
 if __name__ == "__main__":
-    Pao = BankAccount("Pao Lo", 55781233)
-    Nik = BankAccount("Nik Oh", 77777777)
-    Shwa = BankAccount("Shwa Bae", 12987645)
+    Pao = BankAccount("Pao Lo", "savings")
+    Nik = BankAccount("Nik Oh", "checking")
+    Shwa = BankAccount("Shwa Bae")
     Pao.deposit(33.55)
-    Nik.deposit(0.05)
+    Nik.deposit(9.05)
     Shwa.deposit(12)
     print()
     Pao.print_statement()
     Nik.print_statement()
     Shwa.print_statement()
-    print()
     Pao.add_interest()
+    Nik.add_interest()
+    Shwa.add_interest()
+    print()
+    Pao.print_statement()
+    Nik.print_statement()
+    Shwa.print_statement()
     Nik.withdraw(10)
     Shwa.withdraw(10)
     print()
@@ -55,7 +72,7 @@ if __name__ == "__main__":
     Shwa.print_statement()
     # Mitchell Testing
     print()
-    Mitchell = BankAccount("Mitchell", 3141592)
+    Mitchell = BankAccount("Mitchell")
     Mitchell.deposit(400000)
     Mitchell.print_statement()
     Mitchell.add_interest()
