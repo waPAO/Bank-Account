@@ -27,7 +27,7 @@ class BankAccount:
     # Add interest to balance
     def add_interest(self) -> None:
         interest = self.balance * 0.00083
-        self.balance += interest
+        self.balance -= interest
     
     # Print account details
     def print_statement(self) -> None:
@@ -35,4 +35,30 @@ class BankAccount:
 
 # Tests
 if __name__ == "__main__":
-    pass
+    Pao = BankAccount("Pao Lo", 55781233)
+    Nik = BankAccount("Nik Oh", 77777777)
+    Shwa = BankAccount("Shwa Bae", 12987645)
+    Pao.deposit(33.55)
+    Nik.deposit(0.05)
+    Shwa.deposit(12)
+    print()
+    Pao.print_statement()
+    Nik.print_statement()
+    Shwa.print_statement()
+    print()
+    Pao.add_interest()
+    Nik.withdraw(10)
+    Shwa.withdraw(10)
+    print()
+    Pao.print_statement()
+    Nik.print_statement()
+    Shwa.print_statement()
+    # Mitchell Testing
+    print()
+    Mitchell = BankAccount("Mitchell", 3141592)
+    Mitchell.deposit(400000)
+    Mitchell.print_statement()
+    Mitchell.add_interest()
+    Mitchell.print_statement()
+    Mitchell.withdraw(150)
+    Mitchell.print_statement()
