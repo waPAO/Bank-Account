@@ -4,6 +4,7 @@ class BankAccount:
     # Initialize object
     def __init__(self, full_name: str, type = "checking") -> None:
         self.name = full_name
+        # Creates random 8-digit account number for each user
         self.number = randint(10000000, 99999999)
         self.balance = 0
         if type == "checking":
@@ -79,3 +80,8 @@ if __name__ == "__main__":
     Mitchell.print_statement()
     Mitchell.withdraw(150)
     Mitchell.print_statement()
+
+    print()
+    bank = [Pao, Nik, Shwa, Mitchell]
+    for user in bank:
+        user.add_interest()
